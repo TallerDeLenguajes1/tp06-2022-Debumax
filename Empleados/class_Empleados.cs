@@ -69,10 +69,59 @@ class class_Empleados
         Console.WriteLine("algo ocurrio");
         return 0;
     }
-    public double Salario(){
-        double salario;
+    public double Salario()
+    {
+        double salario=Sueldo_Basico1;
         
-        return 0;
+        if (anios_jubilacion()>0 && anios_jubilacion()<20)//
+        {
+            salario = Sueldo_Basico1*(Antiguedad()/100);
+            if (Cargo1==Cargos.Especialista || Cargo1==Cargos.Ingeniero)
+            {
+                salario=salario*1.5;
+                if (Estado_Civil1=='c')
+                {
+                    salario=salario+15000;
+                    
+                }
+            }
+            else
+            {
+                if (Estado_Civil1=='c')
+                {
+                    salario=salario+15000;
+                }
+            }
+        }
+        else
+        {
+            if (anios_jubilacion()>=20)
+            {
+                salario = Sueldo_Basico1*1.25*Antiguedad();
+                if (Cargo1==Cargos.Especialista || Cargo1==Cargos.Ingeniero)
+                 {
+                    salario=salario*1.5;
+                    if (Estado_Civil1=='c')
+                    {
+                         salario=salario+15000;
+                         
+                    }
+                }
+                else
+                {
+                     if (Estado_Civil1=='c')
+                    {
+                         salario=salario+15000;
+                         
+                    }
+                }
+            
+            }
+
+
+        }
+        
+        return salario;
     }
 
 
